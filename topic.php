@@ -65,7 +65,7 @@ $connexion = mysqli_connect ("localhost","root","","forum");
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
 							                        <option value="">--Choisir--</option>
-							                        <option value="none">Tous</option>
+							                        <option value="moderateur">Modérateur</option>
 							                        <option value="membre">Membre</option>
 							                        <option value="admin">Admin</option>
 							                    </select>
@@ -103,7 +103,7 @@ $connexion = mysqli_connect ("localhost","root","","forum");
 							                    <input type="text" name="description" required></br>
 							                    <select name="private"></br>
 							                        <option value="">--choisir--</option>
-							                        <option value="none">Tous</option>
+							                        <option value="moderateur">Modérateur</option>
 							                        <option value="membre">Membre</option>
 							                        <option value="admin">Admin</option>
 							                    </select>
@@ -136,9 +136,9 @@ $connexion = mysqli_connect ("localhost","root","","forum");
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
 							                        <option value="">--choisir--</option>
-							                        <option value="none">Tous</option>
-							                        <option value="membre">Membre</option>
-							                        <option value="admin">Admin</option>
+							                        <option value="moderateur">Modérateurs</option>
+							                        <option value="membre">Membres</option>
+							                        <option value="admin">Admins</option>
 							                    </select>
 							                    <input type="submit" value="effacer" name="effacer"></br>
 							      </form>
