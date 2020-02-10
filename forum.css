@@ -1,0 +1,65 @@
+/*page profil*/
+.bodyf{
+	background-image:url(https://ak6.picdn.net/shutterstock/videos/1027713866/thumb/10.jpg);
+	background-size: cover;
+
+}
+
+#container1{
+    width: 716px;
+    height: 507px;
+    background-color: #ffff0038;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 29%;
+    margin-top: 10%;
+    border: solid 3px black;
+}
+
+#main{
+
+
+    width: 50%;
+    height: 291px;
+    background-color: #0000ff33;
+    border: solid black 2px;
+    font-size: 25px;
+
+
+}
+
+#info-prof{
+    width: 50%;
+    height: 98%;
+    background-color: #ffeb3b1c;
+    text-align: center;
+    border: solid 2px;
+    font-size: 25px;
+
+}
+
+
+#profc{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 30%;
+	text-align: center;
+}
+
+#H1prof {
+	text-align: center;
+}
+#H1pro{
+    position: absolute;
+    font-size: 34px;
+    color: red;
+    margin-top: 11%;
+    margin-left: 32%;
+    text-align: center;
+}
+
+
+
+
