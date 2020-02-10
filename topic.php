@@ -11,11 +11,9 @@ session_start();
 </head>
 <body id="topic">
 <section id="conteneur">
-<?php
-date_default_timezone_set('Europe/Paris');
-$connexion = mysqli_connect ("localhost","root","","forum");
-
-
+						<?php
+						date_default_timezone_set('Europe/Paris');
+						$connexion = mysqli_connect ("localhost","root","","forum");
 						$requete1 = "SELECT title,description,date,login,private FROM topics INNER JOIN utilisateurs WHERE utilisateurs.id=topics.user_id";
 						$query1 = mysqli_query($connexion,$requete1);
 
@@ -65,7 +63,7 @@ $connexion = mysqli_connect ("localhost","root","","forum");
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
 							                        <option value="">--Choisir--</option>
-							                        <option value="moderateur">Modérateur</option>
+							                        <option value="none">Tous</option>
 							                        <option value="membre">Membre</option>
 							                        <option value="admin">Admin</option>
 							                    </select>
@@ -103,7 +101,7 @@ $connexion = mysqli_connect ("localhost","root","","forum");
 							                    <input type="text" name="description" required></br>
 							                    <select name="private"></br>
 							                        <option value="">--choisir--</option>
-							                        <option value="moderateur">Modérateur</option>
+							                        <option value="none">Tous</option>
 							                        <option value="membre">Membre</option>
 							                        <option value="admin">Admin</option>
 							                    </select>
@@ -126,7 +124,8 @@ $connexion = mysqli_connect ("localhost","root","","forum");
 		
 				   										}
 				  					}
-
+				  				}
+				
 				   ?>
 				    <div class ="form">
 								  <form method="post" class="ajout">
@@ -136,17 +135,20 @@ $connexion = mysqli_connect ("localhost","root","","forum");
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
 							                        <option value="">--choisir--</option>
-							                        <option value="moderateur">Modérateurs</option>
-							                        <option value="membre">Membres</option>
-							                        <option value="admin">Admins</option>
+							                        <option value="none">Tous</option>
+							                        <option value="membre">Membre</option>
+							                        <option value="admin">Admin</option>
 							                    </select>
 							                    <input type="submit" value="effacer" name="effacer"></br>
 							      </form>
 							</div>
 							<?php
+							if ($_SESSION['rank'] == "moderateur"){
+							include("moderateur.php");
 						}
-					}
-	
+						}
+
+					
 				?>
 
 				</section>
