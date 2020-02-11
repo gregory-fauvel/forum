@@ -4,13 +4,13 @@ session_start();
 $connexion = mysqli_connect("localhost", "root", "", "forum");
 date_default_timezone_set('europe/paris');
 include 'bar-nav.php';
-$id = $_GET['cnvid'];
+$id = $_GET['id'];
 
-$requete= "SELECT * FROM topics";
+$requete= "SELECT * FROM topics WHERE id = $id";
 $query = mysqli_query( $connexion,$requete);
 $resultat = mysqli_fetch_all($query);
 
-$idtopic = $resultat[0][0];
+
 
  if (isset($_POST['submit']))
 {       
@@ -20,13 +20,13 @@ $idtopic = $resultat[0][0];
         $private = $_SESSION['rank'];
         $iduser = $_SESSION["id"];
         
-		$requete2= "INSERT INTO conversations (title, description, user_id, date, topic_id, private) VALUES ('$titro', '$descrip', '$iduser', NOW(), '$idtopic', '$private')";
+		$requete2= "INSERT INTO conversations (title, description, user_id, date, topic_id, private) VALUES ('$titro', '$descrip', '$iduser', NOW(), '$id', '$private')";
 		$query2= mysqli_query($connexion, $requete2);
-        header("location:conversation.php?id=$idtopic");
+        header("location:conversation.php?id=$id");
 
 }
 
-$requete1 = "SELECT conversations.id, conversations.title, conversations.description,conversations.date,utilisateurs.id, utilisateurs.login, topics.title, topics.id FROM topics INNER JOIN utilisateurs ON topics.user_id = utilisateurs.id INNER JOIN conversations ON topics.id = conversations.topic_id  ORDER BY conversations.id DESC ";
+$requete1 = "SELECT conversations.id, conversations.title, conversations.description,conversations.date,utilisateurs.id, utilisateurs.login, topics.title, topics.id FROM topics INNER JOIN utilisateurs ON topics.user_id = utilisateurs.id INNER JOIN conversations ON topics.id = conversations.topic_id WHERE topic_id = $id ORDER BY conversations.id DESC ";
 $query1 = mysqli_query($connexion, $requete1);
 $resultat1 = mysqli_fetch_all($query1);
 
@@ -35,12 +35,12 @@ foreach ($resultat1 as list($idco, $titreco, $descco, $dateco, $idu, $loginu, $t
 {
     echo "<p>".$titreto."</p>";
 ?>
-    <a class="" href="message.php?cnvid=<?php echo $idco?>"><?php echo $titreco ?></a>
+    <a class="" href="message.php?id=<?php echo $idco?>"><?php echo $titreco ?></a>
 
     <?php echo $descco ?>
 
     <?php echo $dateco ?>
-    <a href="membre.php?cnvid=<?php echo $idu ?>"><?php echo $loginu ?></a>
+    <a href="membre.php?id=<?php echo $idu ?>"><?php echo $loginu ?></a>
 
 <?php
 }
@@ -49,7 +49,7 @@ foreach ($resultat1 as list($idco, $titreco, $descco, $dateco, $idu, $loginu, $t
 {
 
 ?>
-<form action="conversation.php?id=<?php echo $idtopic ?>" method="post" class="ajout">
+<form action="conversation.php?id=<?php echo $id ?>" method="post" class="ajout">
                 <label>Conversation</label>
                 <input type="text" name="titre" required>
                 <label>Description</label>
