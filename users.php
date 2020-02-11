@@ -1,10 +1,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="camping.css">
+        <link rel="stylesheet" type="text/css" href="forum.css">
     <title>Profil</title>
 </head>
-<body class="bodyc">
+<body id="bodyu">
 
   <?php
   session_start();
@@ -19,15 +19,17 @@
     $data = mysqli_fetch_assoc($req);
   
   ?>
-    <section id="connexion">
-        
-      <div id="main" class="container">
+    
+        <div id="containeruser">
+    <div class="blocuser">
+      <div id="mainuser">
         <?php
       $LoginS= $_SESSION['login']; 
       ?>
 
-
+      <div id="titreu">
         <h1>Profil de <?php echo $data['name'] ?></h1>
+      </div>
 
             
 
@@ -36,20 +38,24 @@
           <p>Inscrit le: <?php echo $data['date']?></p>
 
          </div>
+       </div>
         
-   </section>
+   
+   <div id="formU">
   <?php
   if ($_SESSION['login'] == 'admin'){
     ?>
     <label>Changer de grade</label>
     <form method="post">
     <select name="rank">
-      <option value="admin">Admin</option>;
-      <option value="modo">Moderateur</option>
-      <option value="Menbre">Membre</option>
+      <option value="Admin">Admin</option>;
+      <option value="moderateur">Moderateur</option>
+      <option value="Membre">Membre</option>
     </select>
     <input type="submit" name="rankB">
   </form>
+</div>
+</div>
     <?php
 
 
@@ -62,9 +68,9 @@
       $requete2 = "UPDATE utilisateurs SET rank = '$rank' WHERE id = $id";
       echo "$requete2";
       $query2=mysqli_query($connexion,$requete2);
-      
+      header("Refresh:0;");
 
-      // header("location:users.php");
+       // header("location:users.php");
 
     }
   }

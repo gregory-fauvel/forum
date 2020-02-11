@@ -63,3 +63,48 @@
 
 
 
+/*user.php*/
+
+#bodyu{
+background-image: url(https://images.freeimages.com/images/large-previews/01a/technology-background-1632715.jpg);
+display: flex;
+
+}
+.blocuser{
+	display: flex;
+	justify-content: center;
+}
+#titreu{
+	color:red;
+	background-color: blue;
+	text-align: center;
+	
+
+}
+
+
+#mainuser{
+
+	text-align: center;
+	    width: 50%;
+    height: 291px;
+    background-color: #ffb7004d;
+    border: solid black 2px;
+    font-size: 25px;
+    margin-top: 13%;
+    color:#ffbe5f;
+    
+
+}
+
+#formU{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: red;
+}
+#containeruser{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
