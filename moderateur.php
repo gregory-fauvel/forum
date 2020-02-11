@@ -6,22 +6,45 @@
 						<?php
 						date_default_timezone_set('Europe/Paris');
 						$connexion = mysqli_connect ("localhost","root","","forum");
-						$requete1 = "SELECT title,description,date,login,private FROM topics INNER JOIN utilisateurs WHERE utilisateurs.id=topics.user_id";
+						$requete1 = "SELECT topic.id,title,description,date,login,private FROM topics INNER JOIN utilisateurs WHERE utilisateurs.id=topics.user_id";
 						$query1 = mysqli_query($connexion,$requete1);
+						$resultat2 = mysqli_fetch_all($query1);
 
-						while ($info= mysqli_fetch_assoc($query1)) {
+						//while ($info= mysqli_fetch_assoc($query1)) {
+						foreach($resultat2 as list($idto, $titreto,$descripto, $user, $dateto,$privateto))
+						{
+							if (isset($_SESSION['login']))
+							{
+							if ($_SESSION['rank']=='admin'|| $_SESSION['rank']=='moderateur'){
 							?>
-								<div id="formulaire"><a href="conversation.php">
-									<p><?php echo $info['title']?></p></a>
-									<p><?php echo $info['description']?></p>
-									<p><?php echo $info['date']?></p>
-									<p><?php echo $info['login']?></p>
-									<p><?php echo $info['private']?></p>
+							<div id="formulaire"><a href="conversation.php?id=<?php echo $idto?>">
+									<p><?php echo $titreto?></p></a>
+									<p><?php echo $descripto?></p>
+									<p><?php echo $dateto?></p>
+									<p><?php echo $user?></p>
+									
+								
 								</div>
 
 						<?php
-
-						}
+					     }
+					  }
+					   if(!isset($_SESSION['login']))
+					     {
+					     	if($privateto =="public")
+					     	{
+					     	   ?>
+					       	<div id="formulaire"><a href="conversation.php?id=<?php echo $idto ?>">
+					       	        <p><?php echo $titreto?></p></a>
+									<p><?php echo $descripto?></p>
+									<p><?php echo $dateto?></p>
+								
+							</div>
+					     <?php  		
+					     	}
+					     }
+					 }
+				         	
 
 									if (isset($_POST['valider2'])) {
 							
@@ -32,13 +55,15 @@
 									                $description = $_POST['description'];
 									                $private = $_POST['private'];
 									                $id = $_SESSION['id'];
-													$requete = "INSERT INTO topics( title, description, user_id, date, private) VALUES ('$titre','$description','$id',NOW(),'admin')";
+													$requete = "INSERT INTO topics( title, description, user_id, date, private) VALUES ('$titre','$description','$id',NOW(),'$private')";
 													$query = mysqli_query($connexion,$requete);
 													header('Location: topic.php');
 																	
 							
 												}
 											}
+
+
 
 											?>
 												<h1>Panneau de commandes</h1>

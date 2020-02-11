@@ -38,32 +38,66 @@ session_start();
     }
     ?>
 	</header>
+
+
+
 <section class="conteneur">
 	<h1>Nos Topics</h1>
 						<?php
 						
 								date_default_timezone_set('Europe/Paris');
 								$connexion = mysqli_connect ("localhost","root","","forum");
-								$requete1 = "SELECT title,description,date,login,private FROM topics INNER JOIN utilisateurs WHERE utilisateurs.id=topics.user_id";
+								$requete1 = "SELECT *FROM topics INNER JOIN utilisateurs WHERE utilisateurs.id=topics.user_id";
 								$query1 = mysqli_query($connexion,$requete1);
+								$resultat1 = mysqli_fetch_all($query1);
 
-						while ($info= mysqli_fetch_assoc($query1)) {
-							?>
-								<div id="formulaire"><a href="conversation.php">
-									<p><?php echo $info['title']?></p></a>
-									<p><?php echo $info['description']?></p>
-									<p><?php echo $info['date']?></p>
-									<p><?php echo $info['login']?></p>
-									
+						foreach($resultat1 as list($idto, $titreto,$descripto, $user, $dateto,$privateto))
+						{
+							if (isset($_SESSION['login'])){
+
+							  if ($_SESSION['rank']=='Admin'|| $_SESSION['rank']=='moderateur') {
+							
+							  ?>
+								<div id="formulaire"><a href="conversation.php?id=<?php echo $idto?>">
+									<p><?php echo $titreto?></p></a>
+									<p><?php echo $descripto?></p>
+									<p><?php echo $dateto?></p>
 								</div>
+							
 
 						<?php
+					       }
+					       if ($_SESSION['rank']=='Membre' && $privateto =="public") {
+					       	?>
+					       	<div id="formulaire"><a href="conversation.php?id=<?php echo $idto ?>">
+					       	        <p><?php echo $titreto?></p></a>
+									<p><?php echo $descripto?></p>
+									<p><?php echo $dateto?></p>
+								
+									</div>
+					     <?php  	
+					       }
+					     }
+					     if(!isset($_SESSION['login']))
+					     {
+					     	if($privateto =="public")
+					     	{
+					     	   ?>
+					       	<div id="formulaire"><a href="conversation.php?id=<?php echo $idto ?>">
+					       	        <p><?php echo $titreto?></p></a>
+									<p><?php echo $descripto?></p>
+									<p><?php echo $dateto?></p>
+								
+							</div>
+					     <?php  		
+					     	}
+					     }
+					   }
 
-						}
 
-					if (isset($_SESSION['login'])) {
+						
 
-					  		if ($_SESSION['rank'] == "Admin"){
+					
 					  		
 									if (isset($_POST['valider'])) {
 							
@@ -74,14 +108,17 @@ session_start();
 									                $description = $_POST['description'];
 									                $private = $_POST['private'];
 									                $id = $_SESSION['id'];
-													$requete = "INSERT INTO topics( title, description, user_id, date, private) VALUES ('$titre','$description','$id',NOW(),'admin')";
+													$requete = "INSERT INTO topics( title, description, user_id, date, private) VALUES ('$titre','$description','$id',NOW(),'$private')";
 													$query = mysqli_query($connexion,$requete);
 													header('Location: topic.php');
 																	
 							
 													}
 
-											}		
+											}
+					if (isset($_SESSION['login'])) {
+
+					  		if ($_SESSION['rank'] == "Admin"){								
 
 						?>
 			<h1>Panneau de commandes</h1>
@@ -104,6 +141,8 @@ session_start();
 							</div>
 
 				   <?php
+				}
+			}
 				   if (isset($_POST['modifier'])) {
 
 
@@ -121,6 +160,9 @@ session_start();
 		
 				   									}
 				   								}
+				   		if (isset($_SESSION['login'])) {
+
+					  		if ($_SESSION['rank'] == "Admin"){
 				   ?>
 				   		<div class ="form">
 								  <form method="post" class="ajout">
@@ -139,6 +181,8 @@ session_start();
 							      </form>
 							</div>
 				   	  <?php
+				   	}
+				   }
 				   	  				if (isset($_POST['effacer'])) 
 				   	  				{
 					   	  								if (!empty($_POST['titre4'])  && !empty($_POST['description']) && !empty($_POST['private']))
@@ -153,8 +197,12 @@ session_start();
 		
 				   										}
 				  					}
-				  				}
-				
+				  				
+				  			
+				  		
+				if (isset($_SESSION['login'])) {
+
+					  if ($_SESSION['rank'] == "Admin"){
 				   ?>
 				    <div class ="form">
 								  <form method="post" class="ajout">
@@ -164,7 +212,6 @@ session_start();
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
 							                        <option value="">--choisir--</option>
-							                      		 <option value="">--choisir--</option>
 							                        <option value="prive">Privé</option>
 							                        <option value="public">Public</option>
 							                       
@@ -174,10 +221,16 @@ session_start();
 							</div>
 						</div>
 							<?php
+                          }
+                      }
+                          if(isset($_SESSION['login']))
+                          {
 							if ($_SESSION['rank'] == "moderateur"){
 							include("moderateur.php");
 						}
-						}
+					  }
+
+						
 
 					
 				?>
