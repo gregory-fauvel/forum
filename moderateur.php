@@ -1,6 +1,8 @@
 
 
-<section id="conteneur2">
+<section class="conteneur">
+	<link rel="stylesheet" type="text/css" href="forum.css">
+	<h1>Nos Topics</h1>
 						<?php
 						date_default_timezone_set('Europe/Paris');
 						$connexion = mysqli_connect ("localhost","root","","forum");
@@ -39,6 +41,7 @@
 											}
 
 											?>
+												<h1>Panneau de commandes</h1>
 												<div class ="form">
 								  <form method="post" class="ajout">
 							                    <label>Titre</label></br>
@@ -47,9 +50,10 @@
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
 							                        <option value="">--Choisir--</option>
-							                        <option value="none">Tous</option>
-							                        <option value="membre">Membre</option>
-							                        <option value="admin">Admin</option>
+							                         <option value="">--choisir--</option>
+							                        <option value="prive">Privé</option>
+							                        <option value="public">Public</option>
+							                       
 							                    </select>
 							                    <input type="submit" value="Envoyer" name="valider2"></br>
 							      </form>

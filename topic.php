@@ -9,13 +9,43 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="forum.css">
 
 </head>
+
 <body id="topic">
-<section id="conteneur">
+	<header id="headtopic">
+		<header class="">
+    <?php 
+    include("bar-nav.php");
+    ?>
+    <main id="user">
+    <?php
+    if (isset($_SESSION['login'])==false)
+    {
+       echo "<h3>Connectez vous et réservez maintenant";
+    }
+    elseif(isset($_SESSION['login'])==true)
+
+    {
+       if($_SESSION['login'] =="admin")
+       {
+        $user = $_SESSION['login'];
+            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté.</b></h3>";
+       }
+       else
+       {
+        $user = $_SESSION['login'];
+            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté vous pouvez posté des topics maintenant.</b></h3>"; 
+       }
+    }
+    ?>
+	</header>
+<section class="conteneur">
+	<h1>Nos Topics</h1>
 						<?php
-						date_default_timezone_set('Europe/Paris');
-						$connexion = mysqli_connect ("localhost","root","","forum");
-						$requete1 = "SELECT title,description,date,login,private FROM topics INNER JOIN utilisateurs WHERE utilisateurs.id=topics.user_id";
-						$query1 = mysqli_query($connexion,$requete1);
+						
+								date_default_timezone_set('Europe/Paris');
+								$connexion = mysqli_connect ("localhost","root","","forum");
+								$requete1 = "SELECT title,description,date,login,private FROM topics INNER JOIN utilisateurs WHERE utilisateurs.id=topics.user_id";
+								$query1 = mysqli_query($connexion,$requete1);
 
 						while ($info= mysqli_fetch_assoc($query1)) {
 							?>
@@ -24,7 +54,7 @@ session_start();
 									<p><?php echo $info['description']?></p>
 									<p><?php echo $info['date']?></p>
 									<p><?php echo $info['login']?></p>
-									<p><?php echo $info['private']?></p>
+									
 								</div>
 
 						<?php
@@ -54,6 +84,8 @@ session_start();
 											}		
 
 						?>
+			<h1>Panneau de commandes</h1>
+			<div id="conteneurform">
 			
 							<div class ="form">
 								  <form method="post" class="ajout">
@@ -62,10 +94,10 @@ session_start();
 							                    <label>Description</label></br>
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
-							                        <option value="">--Choisir--</option>
-							                        <option value="none">Tous</option>
-							                        <option value="membre">Membre</option>
-							                        <option value="admin">Admin</option>
+							                         <option value="">--choisir--</option>
+							                        <option value="prive">Privé</option>
+							                        <option value="public">Public</option>
+							                       
 							                    </select>
 							                    <input type="submit" value="Envoyer" name="valider"></br>
 							      </form>
@@ -83,7 +115,6 @@ session_start();
 									                $description = $_POST['description'];
 									                $private = $_POST['private'];
 									                $id = $_SESSION['id'];
-
 											        $requete2="UPDATE topics SET title= '$titre2', description= '$description', user_id= '$id', date= NOW(), private= '$private' WHERE title = '$titre3'";
 													$query2 = mysqli_query($connexion,$requete2);
 													header('Location: topic.php');
@@ -101,10 +132,9 @@ session_start();
 							                    <input type="text" name="description" required></br>
 							                    <select name="private"></br>
 							                        <option value="">--choisir--</option>
-							                        <option value="none">Tous</option>
-							                        <option value="membre">Membre</option>
-							                        <option value="admin">Admin</option>
-							                    </select>
+							                        <option value="prive">Privé</option>
+							                        <option value="public">Public</option>
+							                       
 							                    <input type="submit" value="modifier" name="modifier"></br>
 							      </form>
 							</div>
@@ -117,7 +147,6 @@ session_start();
 										                $description = $_POST['description'];
 										                $private = $_POST['private'];
 										                $id = $_SESSION['id'];
-
 									        			$requete3= "DELETE FROM `topics` WHERE title='$titre4'";
 														$query3 = mysqli_query($connexion,$requete3);
 														header('Location: topic.php');
@@ -135,13 +164,15 @@ session_start();
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
 							                        <option value="">--choisir--</option>
-							                        <option value="none">Tous</option>
-							                        <option value="membre">Membre</option>
-							                        <option value="admin">Admin</option>
+							                      		 <option value="">--choisir--</option>
+							                        <option value="prive">Privé</option>
+							                        <option value="public">Public</option>
+							                       
 							                    </select>
 							                    <input type="submit" value="effacer" name="effacer"></br>
 							      </form>
 							</div>
+						</div>
 							<?php
 							if ($_SESSION['rank'] == "moderateur"){
 							include("moderateur.php");
@@ -152,6 +183,9 @@ session_start();
 				?>
 
 				</section>
+				<footer>
+					 <aside> Copyright 2020 Coding School | All Rights Reserved | Project by Anthony,Mohamed,Grégory. </aside>
+				</footer>
 	
 		</body>
 </html>
