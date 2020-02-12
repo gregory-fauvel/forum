@@ -39,28 +39,32 @@
 
 <html>
 <head>
-    <title>Reservation Salles - Connexion</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Forum - Connexion</title>
+    <link rel="stylesheet" type="text/css" href="forum.css">
+    <meta charset="utf-8">
 </head>
-<body>
-    <?php include("include/header.php"); ?>
-    <main>
-        <section class="cmid">
+<body class="inscription">
+
+    <header class="header">
+    <?php include("bar-nav.php"); ?>
+    </header>
+    
+  
                 <?php
                 if ( !isset($_SESSION['login']) ) {
                     ?>
-                <section class="mid">
-                    <article class="titleform">
-                        <p>Connexion</p>
-                    </article>
+        
+                     <section class="conteneur1">
+                        <h1>Connexion</h1>
+                    
                     <form method="post" action="connexion.php">
-                        <section class="cform">
+                    
                             <label>Identifiant</label>
                             <input type="text" name="login" ><br />
                             <label>Mot de passe</label>
                             <input type="password" name="password" ><br />
-                            <input type="submit" value="Se connecter" name="connexion" >
-                        </section>
+                            <input class="bouton" type="submit" value="Se connecter" name="connexion" >
+                        
                     </form>
                     <?php
                     if ( $ismdpwrong == true ) {
@@ -79,7 +83,7 @@
                     <?php
                     }
                     ?>
-                    </section>
+                    
                 <?php
                 }
 
@@ -87,12 +91,14 @@
                 ?>
                     <center><p>ERREUR<br />
                     Vous êtes déjà connecté !</p></center>
-                    </section>
+            
                 <?php
                 }
                 ?>
         </section>
-    </main>
-    <?php include("include/footer.php"); ?>
-</body>
+    
+                <footer class="footer">
+                     <aside> Copyright 2020 Coding School | All Rights Reserved | Project by Anthony,Mohamed,Grégory. </aside>
+                 </footer>
+    </body>
 </html>

@@ -9,19 +9,19 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Accueil - Forum </title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="forum.css">
 </head>
 
-<body>
-
-    <?php include 'include/header.php' ?>
-
+<body class="topic">
+    <header>
+    <?php include 'bar-nav.php' ?>
+    </header>
     <main>
 
         <?php if (isset($_SESSION['login'])) { ?>
 
             <section>
-                <p> Bonjour <?php echo $_SESSION['login'] ?></p>
+                <p> Bonjour  <?php echo $_SESSION['login']?> et bienvenue sur notre forum d'entraide aux languages du web </p>
             </section>
 
         <?php } else { ?>
@@ -33,7 +33,10 @@ session_start();
 
     </main>
 
-    <?php include 'include/footer.php' ?>
+    
+                <footer>
+                     <aside> Copyright 2020 Coding School | All Rights Reserved | Project by Anthony,Mohamed,Grégory. </aside>
+                 </footer>
 
 </body>
 

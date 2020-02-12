@@ -10,59 +10,65 @@ if (isset($_SESSION["login"])) {
 
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <title> Inscription - Forum </title>
-    <link rel="stylesheet" href="style.css">
-</head>
+            <head>
+                <meta charset="UTF-8">
+                <title> Inscription - Forum </title>
+                <link rel="stylesheet" href="forum.css">
+            </head>
 
-<body>
+    <body class="inscription">
+            <header class="header">
 
-    <?php include 'include/header.php' ?>
+                <?php include 'bar-nav.php' ?>
 
-    <main>
+            </header>
 
-        <h1> Inscription </h1>
+    
+                    <section class ="conteneur1">
+                        <h1> Inscription </h1>
 
-        <form class='module_co' method='POST' action='inscription.php'>
+                        <form method='POST' action='inscription.php'>
+                            <article>
+                                <label> Login </label></br>
+                                <input type="text" name='login' required />
+                            </article>
 
+                            <article>
+                                <label> Name </label></br>
 
-            <article>
-                <label> Login </label>
-                <input type="text" name='login' required />
-            </article>
+                                <input type="text" name='name' required />
+                            </article>
 
-            <article>
-                <label> Name </label>
-                <input type="text" name='name' required />
-            </article>
+                            <article>
+                                <label> Surname </label></br>
 
-            <article>
-                <label> Surname </label>
-                <input type="text" name='surname' required />
-            </article>
+                                <input type="text" name='surname' required />
+                            </article>
 
-            <article>
-                <label> Mot de passe </label>
-                <input type="password" name='password' required />
-            </article>
+                            <article>
+                                <label> Mot de passe </label></br>
 
+                                <input type="password" name='password' required />
+                            </article>
 
-            <article>
-                <label> Confirmation de mot de passe </label>
-                <input type="password" name='password_conf' required />
-            </article>
+                            <article>
+                                <label> Confirmation de mot de passe </label></br>
 
-            <input type='submit' name='inscription' value='Inscription' />
+                                <input type="password" name='password_conf' required />
+                            </article>
 
-            <?php include 'include/traitement-inscription.php' ?>
+                            <input class="bouton" type='submit' name='inscription' value='Inscription' />
 
-        </form>
+                            <?php include 'include/traitement-inscription.php' ?>
 
-    </main>
+                        </form>
+                    </section>
+ 
 
-    <?php include 'include/footer.php' ?>
+                <footer class="footer">
+                     <aside> Copyright 2020 Coding School | All Rights Reserved | Project by Anthony,Mohamed,Grégory. </aside>
+                 </footer>
 
-</body>
+            </body>
 
-</html>
+        </html>

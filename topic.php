@@ -11,16 +11,16 @@ session_start();
 </head>
 
 <body id="topic">
-	<header id="headtopic">
-		<header class="">
+	<header class="header">
+		
     <?php 
     include("bar-nav.php");
     ?>
-    <main id="user">
+   
     <?php
     if (isset($_SESSION['login'])==false)
     {
-       echo "<h3>Connectez vous et réservez maintenant";
+       echo "<h3>Connectez vous et postez vos topics maintenant";
     }
     elseif(isset($_SESSION['login'])==true)
 
@@ -41,8 +41,8 @@ session_start();
 
 
 
-<section class="conteneur">
-	<h1>Nos Topics</h1>
+				<section id="conteneur">
+								<h1>Nos Topics</h1>
 						<?php
 						
 								date_default_timezone_set('Europe/Paris');
@@ -92,12 +92,7 @@ session_start();
 					     <?php  		
 					     	}
 					     }
-					   }
-
-
-						
-
-					
+					   }	
 					  		
 									if (isset($_POST['valider'])) {
 							
@@ -236,7 +231,7 @@ session_start();
 				?>
 
 				</section>
-				<footer>
+				<footer class="footer">
 					 <aside> Copyright 2020 Coding School | All Rights Reserved | Project by Anthony,Mohamed,Grégory. </aside>
 				</footer>
 	
