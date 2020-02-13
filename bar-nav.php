@@ -7,11 +7,12 @@
   
 
   <nav class="menu">
-  
-    <li class=""><a href="index.php">Home</a></li>
-    <li class=""><a href="topic.php">Topics</a></li>
-    <li class=""><a href="connexion.php">Connexion</a></li>
-    <li class=""><a href="inscription.php">Inscription</a></li>
+  <ol>
+    <li class="menu-item"><a href="index.php">Home</a></li>
+    <li class="menu-item"><a href="topic.php">Topics</a></li>
+    <li class="menu-item"><a href="connexion.php">Connexion</a></li>
+    <li class="menu-item"><a href="inscription.php">Inscription</a></li>
+  </ol>
    
   
 </nav>
@@ -25,11 +26,14 @@
        
     ?>
     <nav class="menu">
+      <ol>
       
-        <li class=""><a href="index.php">Home</a></li>
-        <li class=""><a href="profil.php">Profil</a></li>
-        <li class=""><a href="topic.php">Topics</a></li>
-        <li class=""><a href="topic.php?deconnexion=true">Déconnexion</a>
+        <li class="menu-item"><a href="index.php">Home</a></li>
+        <li class="menu-item"><a href="topic.php">Topics</a></li>
+        <li class="menu-itemc"><a href="profil.php">Profil</a></li>
+        <li class="menu-itemc"><a href="topic.php?deconnexion=true">Déconnexion</a>
+        </li>
+      </ol>
         
       
     </nav>
