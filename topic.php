@@ -33,7 +33,7 @@ session_start();
        else
        {
         $user = $_SESSION['login'];
-            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté vous pouvez posté des topics maintenant.</b></h3>"; 
+            echo "<h3><b>Bonjour <u>$user,</u> vous êtes connecté vous pouvez posté des messages maintenant.</b></h3>"; 
        }
     }
     ?>
