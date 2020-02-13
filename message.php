@@ -34,14 +34,16 @@ $resultat = mysqli_fetch_assoc($query);
     header("location:message.php?id=$id");
 } 
 
-$requete1 = "SELECT message, date, conv_id, login, utilisateurs.id, message_id, SUM(aime) AS like_total, SUM(aimepas) AS dislike_total FROM interaction INNER JOIN utilisateurs ON interaction.user_id = utilisateurs.id INNER JOIN message ON interaction.message_id = message.id WHERE message.conv_id = $id GROUP BY interaction.message_id ORDER BY message.id DESC";
+$requete1 = "SELECT message, message.date, conv_id, login, utilisateurs.id, message_id, SUM(aime) AS like_total, SUM(aimepas) AS dislike_total FROM interaction INNER JOIN utilisateurs ON interaction.user_id = utilisateurs.id INNER JOIN message ON interaction.message_id = message.id WHERE message.conv_id = $id GROUP BY interaction.message_id ORDER BY message.id DESC";
 $query1 = mysqli_query($connexion, $requete1);
 $resultat1 = mysqli_fetch_all($query1);
 
 foreach ($resultat1 as list($message, $date, $convid, $login, $iduser, $messid, $like, $dislike))
  {
     echo "<p>".$date."</p>";
-    echo "<p>".$login."</p>";
+    ?>
+    <a href="users.php?id=<?php echo $iduser ?>"><?php echo $login ?></a>
+    <?php
     echo "<p>".$message."</p>";
     
  }

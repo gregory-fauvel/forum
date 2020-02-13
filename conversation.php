@@ -26,7 +26,7 @@ $resultat = mysqli_fetch_all($query);
 
 }
 
-$requete1 = "SELECT conversations.id, conversations.title, conversations.description,conversations.date,utilisateurs.id, utilisateurs.login, topics.title, topics.id FROM topics INNER JOIN utilisateurs ON topics.user_id = utilisateurs.id INNER JOIN conversations ON topics.id = conversations.topic_id WHERE topic_id = $id ORDER BY conversations.id DESC ";
+$requete1 = "SELECT conversations.id, conversations.title, conversations.description,conversations.date,utilisateurs.id,login, topics.title, topics.id FROM conversations INNER JOIN utilisateurs ON user_id = utilisateurs.id INNER JOIN topics ON topics.id = conversations.topic_id WHERE topic_id = $id ORDER BY conversations.id DESC ";
 $query1 = mysqli_query($connexion, $requete1);
 $resultat1 = mysqli_fetch_all($query1);
 
@@ -40,7 +40,7 @@ foreach ($resultat1 as list($idco, $titreco, $descco, $dateco, $idu, $loginu, $t
     <?php echo $descco ?>
 
     <?php echo $dateco ?>
-    <a href="membre.php?id=<?php echo $idu ?>"><?php echo $loginu ?></a>
+    <a href="users.php?id=<?php echo $idu ?>"><?php echo $loginu ?></a>
 
 <?php
 }

@@ -29,7 +29,7 @@
         <li class=""><a href="index.php">Home</a></li>
         <li class=""><a href="profil.php">Profil</a></li>
         <li class=""><a href="topic.php">Topics</a></li>
-        <li class=""><a href="index.php?deconnexion=true">Déconnexion</a>
+        <li class=""><a href="topic.php?deconnexion=true">Déconnexion</a>
         
       
     </nav>
@@ -41,7 +41,7 @@
                    if($_GET['deconnexion']==true)
                    {  
                       session_unset();
-                      header("location:conversation.php");
+                      header("location:topic.php");
                    }
                 }
     
