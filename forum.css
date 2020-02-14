@@ -1,7 +1,149 @@
+/*page profil*/
+.bodyf{
+	background-image:url(https://images.freeimages.com/images/large-previews/01a/technology-background-1632715.jpg);
+	background-size: cover;
+
+}
+
+#container1{
+    width: 716px;
+    height: 507px;
+    background-color: #03a9f452;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 29%;
+    margin-top: 10%;
+    border: solid 3px black;
+}
+
+#main{
+
+
+    width: 50%;
+    height: 291px;
+    background-color: #5ca78433;
+    border: solid black 2px;
+    font-size: 25px;
+
+
+}
+
+#info-prof{
+    width: 50%;
+    height: 98%;
+    background-color: #ffeb3b1c;
+    text-align: center;
+    border: solid 2px;
+    font-size: 25px;
+
+}
+
+
+#profc{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 30%;
+	text-align: center;
+}
+
+#H1prof {
+	text-align: center;
+}
+#H1pro{
+position: absolute;
+    font-size: 34px;
+    color: black;
+    margin-top: 11%;
+    margin-left: 32%;
+    background-color: #3c7db1;
+    text-align: center;
+}
+#h3prof{
+    color: white;
+    background-color: #3c7db1;
+}
+
+.profform{
+    color: white;
+    background-color: #3c7db1;
+}
+
+#infoprof{
+    width: 50%;
+    height: 98%;
+    background-color: #ffeb3b1c;
+    text-align: center;
+    border: solid 2px;
+    font-size: 25px;
+}
+
+#pascopro{
+    font-size: 65px;
+    color: red;
+    position: absolute;
+    margin-left: 13%;
+    margin-top: 17%;
+    background-color: #03a9f4a8;
+}
+
+
+
+
+
+
+/*user.php*/
+
+#bodyu{
+background-image: url(https://images.freeimages.com/images/large-previews/01a/technology-background-1632715.jpg);
+display: flex;
+
+}
+.blocuser{
+	display: flex;
+	justify-content: center;
+}
+#titreu{
+    color: #b6e8ff;
+    background-color: #2b2bd861;
+    text-align: center;
+	
+
+}
+
+
+#mainuser{
+
+text-align: center;
+    width: 50%;
+    height: 291px;
+    background-color: #03a9f463;
+    border: solid black 2px;
+    font-size: 25px;
+    margin-top: 13%;
+    color: #ffffff;
+    
+
+}
+
+#formU{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    color: #fafcff;
+}
+#containeruser{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
 /*css page inscription et connexion*/
 .inscription
 {
-	background-color: pink;
+	background-image: url('img/fondtopic.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 	margin: 0px;
 	padding: 0px;
 	width: 100%;
@@ -13,7 +155,7 @@
 }
 .conteneur1{
 	
-	background-color: red;
+	background-color:#8ecbfb7a;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,7 +188,7 @@
 	justify-content: center;
 	width: 100%;
 	height: 100px;
-	background-color: yellow;
+	background-color:#238bde80;
 
 }
 .footer{
@@ -55,7 +197,7 @@
 	justify-content: center;
 	width: 100%;
 	height: 100px;
-	background-color: yellow;
+	background-color:#238bde80;
 
 }
 /*contenu des formulaires topics*/
@@ -72,7 +214,7 @@
 }
 
 #conteneurform{
-	background-color:red;
+	background-color:#8ecbfb7a;
 	display:flex;
 	flex-flow: row;
 	justify-content: space-around;
@@ -84,7 +226,7 @@
 }
 
 #formulaire{
-	background-color: yellow;
+	background-color:#8ecbfb7a;
 	border:solid;
 	display: flex;
 	flex-direction:column;
@@ -103,9 +245,9 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: pink;
+	background-color:#8ecbfb7a;
 	border:solid;
-	width: 30%;
+	width:400px ;
 	height: 300px;
 	margin-left: 30px;
 	margin-top: 30px;
@@ -216,7 +358,38 @@ ol{
 	
 
 	}
+/*csstexte page index*/
+#conttexte{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 680px;
+}
 
-/*contenu des formulaires topics*/
+#texte{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-family: Arial sans-serif;
+	font-size: 30px;
+}
+.titre{
+	color: white;
+}
 
+/*csstexte page message*/
+#message{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+    height: 686px;
+}
+.conteneurmessage{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
 

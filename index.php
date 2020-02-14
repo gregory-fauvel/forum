@@ -12,16 +12,16 @@ session_start();
     <link rel="stylesheet" href="forum.css">
 </head>
 
-<body class="topic">
-    <header>
+<body class="inscription">
+    <header class="header">
     <?php include 'bar-nav.php' ?>
     </header>
     <main>
 
         <?php if (isset($_SESSION['login'])) { ?>
 
-            <section>
-                <p> Bonjour  <?php echo $_SESSION['login']?> et bienvenue sur notre forum d'entraide aux languages du web </p>
+            <section id="conttexte">
+                <p id="texte"> Bonjour  <?php echo $_SESSION['login']?> et bienvenue sur notre forum d'entraide aux languages du web </p>
             </section>
 
         <?php } else { ?>
@@ -34,7 +34,7 @@ session_start();
     </main>
 
     
-                <footer>
+                <footer class="footer">
                      <aside> Copyright 2020 Coding School | All Rights Reserved | Project by Anthony,Mohamed,Grégory. </aside>
                  </footer>
 

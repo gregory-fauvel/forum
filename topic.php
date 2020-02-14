@@ -42,7 +42,7 @@ session_start();
 
 
 				<section id="conteneur">
-								<h1>Nos Topics</h1>
+								<h1 class="titre">Nos Topics</h1>
 						<?php
 						
 								date_default_timezone_set('Europe/Paris');
@@ -59,7 +59,7 @@ session_start();
 							
 							  ?>
 								<div id="formulaire"><a href="conversation.php?id=<?php echo $idto?>">
-									<p><?php echo $titreto?></p></a>
+									<h1 class="titre"><?php echo $titreto?></h1></a>
 									<p><?php echo $descripto?></p>
 									<p><?php echo $dateto?></p>
 								</div>
@@ -70,7 +70,7 @@ session_start();
 					       if ($_SESSION['rank']=='Membre' && $privateto =="public") {
 					       	?>
 					       	<div id="formulaire"><a href="conversation.php?id=<?php echo $idto ?>">
-					       	        <p><?php echo $titreto?></p></a>
+					       	        <p class="titre"><?php echo $titreto?></p></a>
 									<p><?php echo $descripto?></p>
 									<p><?php echo $dateto?></p>
 								
@@ -84,10 +84,9 @@ session_start();
 					     	{
 					     	   ?>
 					       	<div id="formulaire"><a href="conversation.php?id=<?php echo $idto ?>">
-					       	        <p><?php echo $titreto?></p></a>
+					       	        <p class="titre"><?php echo $titreto?></p></a>
 									<p><?php echo $descripto?></p>
 									<p><?php echo $dateto?></p>
-								
 							</div>
 					     <?php  		
 					     	}
@@ -116,20 +115,20 @@ session_start();
 					  		if ($_SESSION['rank'] == "Admin"){								
 
 						?>
-			<h1>Panneau de commandes</h1>
+			<h1 class="titre">Panneau de commandes</h1>
 			<div id="conteneurform">
-			
+				
 							<div class ="form">
+									<h1 class="titre">Ajout de topic</h1>
 								  <form method="post" class="ajout">
 							                    <label>Titre</label></br>
 							                    <input type="text" name="titre" required></br>
 							                    <label>Description</label></br>
 							                    <input type="text" name="description" required></br>
 							                    <select name="private" id=""></br>
-							                         <option value="">--choisir--</option>
+							                        <option value="">--choisir--</option>
 							                        <option value="prive">Privé</option>
 							                        <option value="public">Public</option>
-							                       
 							                    </select>
 							                    <input type="submit" value="Envoyer" name="valider"></br>
 							      </form>
@@ -160,6 +159,7 @@ session_start();
 					  		if ($_SESSION['rank'] == "Admin"){
 				   ?>
 				   		<div class ="form">
+				   			<h1 class="titre">Modifier le topic</h1>
 								  <form method="post" class="ajout">
 								  				<label>Recherche Topics</label></br>
 							                    <input type="text" name="titre3" required></br>
@@ -200,6 +200,7 @@ session_start();
 					  if ($_SESSION['rank'] == "Admin"){
 				   ?>
 				    <div class ="form">
+				    	<h1 class="titre">Suprimer le topic</h1>
 								  <form method="post" class="ajout">
 							                    <label>Titre</label></br>
 							                    <input type="text" name="titre4" required></br>

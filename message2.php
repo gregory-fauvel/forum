@@ -36,11 +36,6 @@ session_start();
 
 		}
 	
-
-
-
-	
-
 		// si il a fait un jaime pas
 		if (isset($_POST['jaimepas'])) 
 		{
