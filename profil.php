@@ -84,7 +84,7 @@
   {
   ?>
     <section id="notcon">
-      <p>Veuillez vous connecter pour accéder à votre page !</p>
+      <p id="pascopro">Veuillez vous connecter pour accéder à votre page !</p>
     </section>
         <?php
   }
