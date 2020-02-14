@@ -34,7 +34,7 @@
             
 
            
-          <p>RanK: <?php echo $data['rank']?></p>
+          <p>RanK: <?php echo $data['rank']?></p><br>
           <p>Inscrit le: <?php echo $data['date']?></p>
 
          </div>

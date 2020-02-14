@@ -2,6 +2,7 @@
 <head>
     <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="forum.css">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
     <title>Profil</title>
 </head>
 <body class="bodyf">
@@ -30,14 +31,14 @@
       <article id='profc'>
         <div id="main">
 
-            <h3>changement de mot de passe et pseudo</h3>
+            <h3 id="H3prof">changement de mot de passe et pseudo</h3>
             <form name="loginform" id="loginform" action="#" method="post" enctype="multipart/form-data" class="wpl-track-me"> 
                 <p class="login-username">
-                    <label for="user_login">Username</label> 
+                    <label class="profform" for="user_login">Username</label> 
                     <input type="text" id="user_login" class="input" placeholder="New Username" value="<?php echo $data['login']?>" size="20" name="login"/> 
                 </p> 
                 <p class="login-password"> 
-                    <label for="user_pass">Password</label>
+                    <label class="profform" for="user_pass">Password</label>
                     <input type="password" name="mdp" id="user_pass" class="input" placeholder="New Password" value="<?php echo $data['password']?>" size="20"/> 
                 </p>  
 
@@ -53,10 +54,10 @@
            <div id="info-prof">
 
            
-          <p>RanK: <?php echo $data['rank']?></p>
-          <p>Nom: <?php echo $data['name']?></p>
-          <p>Prenom: <?php echo $data['surname']?></p>
-          <p>Inscrit le: <?php echo $data['date']?></p>
+          <p class="profform">RanK: <?php echo $data['rank']?></p>
+          <p class="profform">Nom: <?php echo $data['name']?></p>
+          <p class="profform">Prenom: <?php echo $data['surname']?></p>
+          <p class="profform">Inscrit le: <?php echo $data['date']?></p>
 
       </div>
     </article>
