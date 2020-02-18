@@ -181,11 +181,9 @@ session_start();
 				   }
 				   	  				if (isset($_POST['effacer'])) 
 				   	  				{
-					   	  								if (!empty($_POST['titre4'])  && !empty($_POST['description']) && !empty($_POST['private']))
+					   	  								if (!empty($_POST['titre4']))
 											 			{
 											 			$titre4 = $_POST['titre4']; 
-										                $description = $_POST['description'];
-										                $private = $_POST['private'];
 										                $id = $_SESSION['id'];
 									        			$requete3= "DELETE FROM `topics` WHERE title='$titre4'";
 														$query3 = mysqli_query($connexion,$requete3);
@@ -205,14 +203,7 @@ session_start();
 								  <form method="post" class="ajout">
 							                    <label>Titre</label></br>
 							                    <input type="text" name="titre4" required></br>
-							                    <label>Description</label></br>
-							                    <input type="text" name="description" required></br>
-							                    <select name="private" id=""></br>
-							                        <option value="">--choisir--</option>
-							                        <option value="prive">Privé</option>
-							                        <option value="public">Public</option>
-							                       
-							                    </select>
+
 							                    <input type="submit" value="effacer" name="effacer"></br>
 							      </form>
 							</div>
