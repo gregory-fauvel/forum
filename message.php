@@ -3,6 +3,14 @@ session_start();
 $connexion = mysqli_connect("localhost", "root", "", "forum");
 date_default_timezone_set('europe/paris');
 ?>
+<html>
+<head>
+  <title>forumtmessage</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="forum.css">
+
+</head>
+<body class="inscription">
 <header class="header">
 <?php include 'bar-nav.php'?>;
 </header>
@@ -84,17 +92,6 @@ echo "</div>";
 if (isset($_SESSION["login"])) {
         ?>
         
-
-
-<html>
-<head>
-  <title>forumtmessage</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="forum.css">
-
-</head>
-
-<body class="inscription">
   <div class="conteneur1">
   <h1 class="titre">Postez ici vos messages</h1>
 
