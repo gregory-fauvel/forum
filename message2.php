@@ -93,8 +93,8 @@
 ?>
 
 <form method='POST' action="message.php?id=<?php echo $id; ?>">
-	<label>(<?php echo $resultataime[0][0] ?>)</label>
-	<input type="submit" name="jaime<?php echo $i ?>" value="jaime"></br>
-	<label>(<?php echo $resultataime2[0][0] ?>)</label>
-	<input type="submit" name="jaimepas<?php echo $i ?>" value="jaimepas"></br>
+	<label><?php echo $resultataime[0][0] ?></label>
+	<button class="logovote" name="jaime<?php echo $i ?>"><img class="logovote-2" src="img/aime.jpg"></button><br />
+	<label><?php echo $resultataime2[0][0] ?></label>
+	<button class="logovote" name="jaimepas<?php echo $i ?>"><img class="logovote-2" src="img/aimepas.jpg"></button><br />
 </form>

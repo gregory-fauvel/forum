@@ -99,8 +99,8 @@ if (isset($_SESSION["login"])) {
   <h1 class="titre">Postez ici vos messages</h1>
 
             <form action="message.php?id=<?php echo $id ?>" method="post" class="">
-                <label>Envoyer un message</label>
-                <input type="text" name="message" required>
+                <label>Envoyer un message (80 caracteres max)</label>
+                <input type="text" name="message" maxlength="80" required>
                 <input class="bouton" type="submit" value="envoyer" name="envoyer">
             </form>
 

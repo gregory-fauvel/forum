@@ -1,17 +1,16 @@
 /*page profil*/
 .bodyf{
-	background-image:url(https://images.freeimages.com/images/large-previews/01a/technology-background-1632715.jpg);
-	background-size: cover;
+    background-image: url(https://images.freeimages.com/images/large-previews/01a/technology-background-1632715.jpg);
+    background-size: cover;
+    margin: 0;
 
 }
 
 #container1{
     width: 716px;
-    height: 507px;
     background-color: #03a9f452;
     display: flex;
     flex-direction: column;
-    position: absolute;
     margin-left: 29%;
     margin-top: 10%;
     border: solid 3px black;
@@ -44,7 +43,6 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	margin-top: 30%;
 	text-align: center;
 }
 
@@ -52,11 +50,8 @@
 	text-align: center;
 }
 #H1pro{
-position: absolute;
     font-size: 34px;
     color: black;
-    margin-top: 11%;
-    margin-left: 32%;
     background-color: #3c7db1;
     text-align: center;
 }
@@ -198,7 +193,13 @@ text-align: center;
 	width: 100%;
 	height: 100px;
 	background-color:#238bde80;
+	color:white;
 
+}
+
+#footprof{
+	    bottom: 0;
+    position: absolute;
 }
 /*contenu des formulaires topics*/
 #conteneur{
@@ -247,13 +248,37 @@ text-align: center;
 	align-items: center;
 	background-color:#8ecbfb7a;
 	border:solid;
-	width: 30%;
+	width:400px ;
 	height: 300px;
 	margin-left: 30px;
 	margin-top: 30px;
 	
 }
+.contmessage{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+	align-items: center;
+	background-color:#8ecbfb7a;
+	border:solid;
+	width: 80%;
+	height: 200px;
+	color: white;
+}
 
+
+.logovote{
+	background: none;
+	border: 0;
+    border-radius: 50px;
+}
+.logovote-2
+{
+	cursor: pointer;
+	width: 60px;
+    height: 40px;
+    border-radius: 50px;
+}
 /*barre nav*/
 a{
 	text-align:center;
@@ -383,12 +408,26 @@ ol{
 #delete{
 background:none;
 border: 0px;
+}
 
+/*csstexte page message*/
+#message{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+    height: 686px;
+}
+.conteneurmessage{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 #imgcorb{
 	cursor: pointer;
-	height:18px;
-	width: 18px;
+	height:30px;
+	width: 30px;
 	border-radius: 50px;
 
 }

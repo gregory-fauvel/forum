@@ -1,14 +1,19 @@
 <html>
+ <?php session_start(); ?>
 <head>
     <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="forum.css">
         <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
     <title>Profil</title>
 </head>
+<header class="header">
+   <?php 
+    include("bar-nav.php");
+    ?>
+  </header>
 <body class="bodyf">
 
   <?php
-  session_start();
   // include("bar-nav.php");
   if (isset($_SESSION['login']))
   {
@@ -92,7 +97,9 @@
 // include("footer.php");
 ?>
  
-  
+          <footer id="footprof" class="footer">
+           <aside> Copyright 2020 Coding School | All Rights Reserved | Project by Anthony,Mohamed,Grégory. </aside>
+        </footer>
 </body>
 </html>
 
