@@ -16,7 +16,7 @@
 
     $requete = "SELECT * FROM utilisateurs WHERE id= $id";
     $req = mysqli_query($connexion, $requete);
-    $data = mysqli_fetch_assoc($req);
+    $data = mysqli_fetch_all($req);
   
   ?>
     

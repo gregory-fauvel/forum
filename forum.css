@@ -253,7 +253,31 @@ text-align: center;
 	margin-top: 30px;
 	
 }
+.contmessage{
+	display: flex;
+	flex-direction:row;
+	justify-content:space-around;
+	align-items: center;
+	background-color:#8ecbfb7a;
+	border:solid;
+	width: 80%;
+	height: 200px;
+	color: white;
+}
 
+
+.logovote{
+	background: none;
+	border: 0;
+    border-radius: 50px;
+}
+.logovote-2
+{
+	cursor: pointer;
+	width: 60px;
+    height: 40px;
+    border-radius: 50px;
+}
 /*barre nav*/
 a{
 	text-align:center;
