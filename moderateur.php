@@ -7,6 +7,7 @@
 						date_default_timezone_set('Europe/Paris');
 						$connexion = mysqli_connect ("localhost","root","","forum");
 						$requete1 = "SELECT topic.id,title,description,date,login,private FROM topics INNER JOIN utilisateurs WHERE utilisateurs.id=topics.user_id";
+						echo $requete1;
 						$query1 = mysqli_query($connexion,$requete1);
 						$resultat2 = mysqli_fetch_all($query1);
 

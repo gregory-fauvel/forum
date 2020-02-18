@@ -378,4 +378,17 @@ ol{
 	color: white;
 }
 
+/*mesage*/
 
+#delete{
+background:none;
+border: 0px;
+
+}
+#imgcorb{
+	cursor: pointer;
+	height:18px;
+	width: 18px;
+	border-radius: 50px;
+
+}

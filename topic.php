@@ -55,7 +55,7 @@ session_start();
 						{
 							if (isset($_SESSION['login'])){
 
-							  if ($_SESSION['rank']=='Admin'|| $_SESSION['rank']=='moderateur') {
+							  if ($_SESSION['rank']=='Admin'|| $_SESSION['rank']=='Moderateur') {
 							
 							  ?>
 								<div id="formulaire"><a href="conversation.php?id=<?php echo $idto?>">

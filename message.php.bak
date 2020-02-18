@@ -2,13 +2,8 @@
 session_start();
 $connexion = mysqli_connect("localhost", "root", "", "forum");
 date_default_timezone_set('europe/paris');
-?>
-<header class="header">
-<?php include 'bar-nav.php'?>;
-</header>
+include 'bar-nav.php';
 
-<h1 class="titre">Nos messages sont ici</h1>
-<?php
 $id = $_GET["id"];
 
 $requete= "SELECT * FROM conversations WHERE id = $id";
@@ -45,42 +40,21 @@ $query1 = mysqli_query($connexion, $requete1);
 $resultat1 = mysqli_fetch_all($query1);
 $i = 0;
 
-foreach ($resultat1 as list($id, $message, $date, $id_conv, $login, $iduser))
+foreach ($resultat1 as list($test, $message, $date, $test, $login, $iduser))
  {
- echo "<div class='contmessage'>";
+
   $idmsg = $resultat1[$i][0];
     echo "<p>".$date."</p>";
     ?>
     <a href="users.php?id=<?php echo $iduser ?>"><?php echo $login ?></a>
     <?php
     echo "<p>".$message."</p>";
-    if ($_SESSION['rank'] == 'Moderateur' || $_SESSION['rank'] == 'Admin'){
-           
 
-        echo '<form method="post">
-              <button id="delete" type="submit" value="'.$id.'" name="delete2" ><img id="imgcorb" src="img/corbeille.png"></button> </br>
-              </form>';
-
-
-
-}
     include("message2.php");
-
     
     $i += 1;
-echo "</div>";
     
  }
-
- if(isset($_POST['delete2'])){
-    
-    $deletemsg= "DELETE from message where id = '".$_POST['delete2']."'";
-    
-    $deletemsg1=mysqli_query($connexion,$deletemsg);
-    header("REFRESH:0;");
-  }
-
-
 if (isset($_SESSION["login"])) {
         ?>
         
@@ -95,24 +69,18 @@ if (isset($_SESSION["login"])) {
 </head>
 
 <body class="inscription">
-  <div class="conteneur1">
-  <h1 class="titre">Postez ici vos messages</h1>
+  <header class="header">
+    
+
+  </header>
 
             <form action="message.php?id=<?php echo $id ?>" method="post" class="">
                 <label>Envoyer un message</label>
                 <input type="text" name="message" required>
-                <input class="bouton" type="submit" value="envoyer" name="envoyer">
+                <input type="submit" value="envoyer" name="envoyer">
             </form>
 
         <?php
         }
 
         ?>
-      </div>
-
-    <footer class="footer">
-      <aside> Copyright 2020 Coding School | All Rights Reserved | Project by Anthony,Mohamed,Grégory. </aside>
-      
-    </footer>
-  </body>
-  </html>
