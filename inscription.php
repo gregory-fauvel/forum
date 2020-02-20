@@ -1,4 +1,5 @@
 <?php
+
     session_start();
 
 $connexion =  mysqli_connect("localhost","root","","forum");
@@ -18,10 +19,9 @@ if (!isset($_SESSION["login"])) {
 </head>
 
 <body class="inscription">
+    
     <header class="header">
-
     <?php include 'bar-nav.php' ?>
-
     </header>
     
         <section class="conteneur1">

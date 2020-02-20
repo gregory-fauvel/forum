@@ -1,4 +1,5 @@
 <?php
+
 				$connexion=mysqli_connect('localhost', 'root', '', 'forum');
 				$id=$_GET['id'];
 				$user = $_SESSION['id'];
@@ -84,6 +85,7 @@
 				 // var_dump($resultataime);
 
 				 $count2="SELECT COUNT(*) FROM interaction WHERE message_id= $idmsg AND aime = -1" ;
+				 //echo $count2;
 				 $countquery2=mysqli_query($connexion,$count2);
 				 $resultataime2= mysqli_fetch_all($countquery2);
 				  // var_dump($resultataime2);

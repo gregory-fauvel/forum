@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 ?>
 
@@ -55,7 +56,7 @@ session_start();
 						{
 							if (isset($_SESSION['login'])){
 
-							  if ($_SESSION['rank']=='Admin'|| $_SESSION['rank']=='Moderateur') {
+							  if ($_SESSION['rank']=='Admin'|| $_SESSION['rank']=='moderateur') {
 							
 							  ?>
 								<div id="formulaire"><a href="conversation.php?id=<?php echo $idto?>">
@@ -84,10 +85,9 @@ session_start();
 					     	{
 					     	   ?>
 					       	<div id="formulaire"><a href="conversation.php?id=<?php echo $idto ?>">
-					       	        <p><?php echo $titreto?></p></a>
+					       	        <p class="titre"><?php echo $titreto?></p></a>
 									<p><?php echo $descripto?></p>
 									<p><?php echo $dateto?></p>
-								
 							</div>
 					     <?php  		
 					     	}
@@ -105,7 +105,7 @@ session_start();
 									                $id = $_SESSION['id'];
 													$requete = "INSERT INTO topics( title, description, user_id, date, private) VALUES ('$titre','$description','$id',NOW(),'$private')";
 													$query = mysqli_query($connexion,$requete);
-													header('Location: topic.php');
+													header("location: topic.php");
 																	
 							
 													}
@@ -151,7 +151,7 @@ session_start();
 									                $id = $_SESSION['id'];
 											        $requete2="UPDATE topics SET title= '$titre2', description= '$description', user_id= '$id', date= NOW(), private= '$private' WHERE title = '$titre3'";
 													$query2 = mysqli_query($connexion,$requete2);
-													header('Location: topic.php');
+													header("location: topic.php");
 		
 				   									}
 				   								}
@@ -172,6 +172,7 @@ session_start();
 							                        <option value="">--choisir--</option>
 							                        <option value="prive">Privé</option>
 							                        <option value="public">Public</option>
+							                    </select>
 							                       
 							                    <input type="submit" value="modifier" name="modifier"></br>
 							      </form>
@@ -181,13 +182,15 @@ session_start();
 				   }
 				   	  				if (isset($_POST['effacer'])) 
 				   	  				{
-					   	  								if (!empty($_POST['titre4']))
+					   	  								if (!empty($_POST['titre4'])  && !empty($_POST['description']) && !empty($_POST['private']))
 											 			{
 											 			$titre4 = $_POST['titre4']; 
+										                $description = $_POST['description'];
+										                $private = $_POST['private'];
 										                $id = $_SESSION['id'];
 									        			$requete3= "DELETE FROM `topics` WHERE title='$titre4'";
 														$query3 = mysqli_query($connexion,$requete3);
-														header('Location: topic.php');
+														header("location: topic.php");
 		
 				   										}
 				  					}
@@ -203,7 +206,14 @@ session_start();
 								  <form method="post" class="ajout">
 							                    <label>Titre</label></br>
 							                    <input type="text" name="titre4" required></br>
-
+							                    <label>Description</label></br>
+							                    <input type="text" name="description" required></br>
+							                    <select name="private" id=""></br>
+							                        <option value="">--choisir--</option>
+							                        <option value="prive">Privé</option>
+							                        <option value="public">Public</option>
+							                       
+							                    </select>
 							                    <input type="submit" value="effacer" name="effacer"></br>
 							      </form>
 							</div>
@@ -213,7 +223,7 @@ session_start();
                       }
                           if(isset($_SESSION['login']))
                           {
-							if ($_SESSION['rank'] == "moderateur"){
+							if ($_SESSION['rank'] == "Moderateur"){
 							include("moderateur.php");
 						}
 					  }

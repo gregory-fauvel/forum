@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 ?>
 <html>
@@ -62,7 +63,6 @@ foreach ($resultat1 as list($idco, $titreco, $descco, $dateco, $idu, $loginu, $t
 
     <p>Posté le: <?php echo $dateco ?></p>
     <p>Par: <a href="users.php?id=<?php echo $idu ?>"><?php echo $loginu ?></a></p>
-  
 </div>
 
 <?php

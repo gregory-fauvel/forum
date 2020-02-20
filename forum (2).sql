@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 18 fév. 2020 à 18:30
+-- Généré le :  jeu. 20 fév. 2020 à 15:28
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -40,16 +40,18 @@ CREATE TABLE IF NOT EXISTS `conversations` (
   `topic_id` int(11) NOT NULL,
   `private` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `conversations`
 --
 
 INSERT INTO `conversations` (`id`, `title`, `description`, `user_id`, `date`, `topic_id`, `private`) VALUES
-(17, 'nouriture', 'des', 1, '2020-02-18 19:12:37', 102, 'Admin'),
-(15, 'les erreur php', 'aie sa fait mal', 4, '2020-02-18 13:58:47', 100, 'Membre'),
-(14, 'LE php genial', 'alala', 1, '2020-02-18 11:34:54', 98, 'Admin');
+(14, 'LE php genial', 'alala', 1, '2020-02-18 11:34:54', 98, 'Admin'),
+(15, 'test', 'test', 1, '2020-02-18 17:35:00', 30, 'Admin'),
+(16, 'nji', 'jnk,j', 1, '2020-02-20 11:45:01', 100, 'Admin'),
+(17, 'coucou', 'fete de momo', 4, '2020-02-20 13:34:52', 110, 'Moderateur'),
+(18, 'test', 'test', 5, '2020-02-20 14:38:19', 112, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -63,21 +65,21 @@ CREATE TABLE IF NOT EXISTS `interaction` (
   `user_id` varchar(255) NOT NULL,
   `message_id` int(11) NOT NULL,
   `aime` int(11) NOT NULL,
+  `aimepas` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=190 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=243 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `interaction`
 --
 
-INSERT INTO `interaction` (`id`, `user_id`, `message_id`, `aime`) VALUES
-(189, '4', 96, -1),
-(188, '1', 96, 1),
-(185, '4', 95, 1),
-(184, '4', 94, -1),
-(183, '1', 94, 1),
-(181, '4', 88, -1),
-(180, '1', 69, -1);
+INSERT INTO `interaction` (`id`, `user_id`, `message_id`, `aime`, `aimepas`) VALUES
+(231, '1', 69, 1, 0),
+(234, '1', 71, 1, 0),
+(238, '1', 74, -1, 0),
+(242, '4', 74, 1, 0),
+(239, '1', 75, 1, 0),
+(240, '5', 76, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -93,15 +95,21 @@ CREATE TABLE IF NOT EXISTS `message` (
   `date` datetime NOT NULL,
   `conv_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=77 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `message`
 --
 
 INSERT INTO `message` (`id`, `user_id`, `message`, `date`, `conv_id`) VALUES
-(93, 1, 'gyfyj', '2020-02-18 17:40:11', 14),
-(96, 1, 'les gars', '2020-02-18 19:12:44', 17);
+(71, 1, 'Le php est utile au dÃ©veloppement d\'un site', '2020-02-18 11:52:31', 14),
+(70, 1, 'bhkvh\'cgfj', '2020-02-18 11:51:21', 14),
+(69, 1, 'vhkvhk', '2020-02-18 11:47:18', 14),
+(72, 1, 'saliut', '2020-02-20 11:45:10', 16),
+(73, 1, 'C EST COOL LE PHP', '2020-02-20 11:46:26', 16),
+(74, 4, 'C EST COOL LE PHP', '2020-02-20 13:35:10', 17),
+(75, 1, 'yes', '2020-02-20 13:44:23', 17),
+(76, 5, 'fdqfs', '2020-02-20 14:38:53', 18);
 
 -- --------------------------------------------------------
 
@@ -118,17 +126,20 @@ CREATE TABLE IF NOT EXISTS `topics` (
   `date` datetime NOT NULL,
   `private` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=104 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=116 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `topics`
 --
 
 INSERT INTO `topics` (`id`, `title`, `description`, `user_id`, `date`, `private`) VALUES
-(102, 'public2', 'aie', 1, '2020-02-18 19:11:01', 'public'),
 (98, 'Les premier test', 'Test php', 1, '2020-02-14 17:19:19', 'prive'),
-(100, 'public', 'test', 1, '2020-02-18 13:58:17', 'public'),
-(103, 'plat', 'plat', 1, '2020-02-18 19:11:32', 'public');
+(115, 'ihnin', 'nnin', 6, '2020-02-20 16:27:51', 'public'),
+(113, 'admin', 'admin', 5, '2020-02-20 14:40:19', 'prive'),
+(112, 'aurevoir', 'aurevoir', 5, '2020-02-20 14:38:05', 'public'),
+(111, 'bonjour', 'bonjour', 5, '2020-02-20 14:37:51', 'public'),
+(110, 'momo', 'fete de momo', 4, '2020-02-20 13:34:30', 'public'),
+(114, 'khlhk', 'khhoij', 6, '2020-02-20 16:27:38', 'public');
 
 -- --------------------------------------------------------
 
@@ -146,15 +157,15 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `rank` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `login`, `password`, `name`, `surname`, `rank`, `date`) VALUES
-(1, 'admin', '$2y$12$ayf3HiiH13OinFOgb60WtOsbmWBfSW.SWJpTZ861hm8unuyXNvEu2', 'admin', 'admin', 'Admin', '2020-02-14 14:39:09'),
-(2, 'test', '$2y$12$vxz.tFgMRFnpSCPZxE7ViucUFVDJDKo8ex06yfhyJDYQSVin17kT6', 'test', 'test', 'Membre', '2020-02-14 14:39:09'),
+(6, 'admin', '$2y$12$roIB5oLF2Hn0UA3JPM.7WewNLxteG2NwdxjH9Exa.Opn2v2f/R3mO', 'admin', 'admin', 'Admin', '2020-02-20 16:16:26'),
+(2, 'test', '$2y$12$vxz.tFgMRFnpSCPZxE7ViucUFVDJDKo8ex06yfhyJDYQSVin17kT6', 'test', 'test', 'Admin', '2020-02-14 14:39:09'),
 (3, 'like', '$2y$12$cDD8fIYdNDrDfdC/moWYkeBVHlDL50lKonKvc6lsiQb10c/f4ke/G', 'like', 'like', 'Membre', '2020-02-14 14:39:09'),
 (4, 'luc', '$2y$12$r/jgaFQEuEPGDgz2ofO/VOLBYnqrK1LC5hlrx/p.IzlmC35I5wK2q', 'luc', 'luc', 'Moderateur', '2020-02-14 14:39:09');
 COMMIT;
