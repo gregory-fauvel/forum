@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 date_default_timezone_set('Europe/Paris');
 $connexion = mysqli_connect ("localhost","root","","forum");

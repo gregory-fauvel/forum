@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 $connexion = mysqli_connect("localhost", "root", "", "forum");
 date_default_timezone_set('europe/paris');
@@ -44,7 +45,7 @@ $resultat1 = mysqli_fetch_all($query1);
 //var_dump($resultat1);
 $i = 0;
 
-foreach ($resultat1 as list($test, $message, $date, $login, $iduser))
+foreach ($resultat1 as list($id, $message, $date, $id_conv,$login, $iduser))
  {
  echo "<div class='contmessage'>";
   $idmsg = $resultat1[$i][0];

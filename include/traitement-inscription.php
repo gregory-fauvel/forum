@@ -1,3 +1,4 @@
+
 <!-- Traitement inscription -->
 
 <?php

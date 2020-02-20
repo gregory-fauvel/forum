@@ -1,4 +1,5 @@
 <?php
+
 				$connexion=mysqli_connect('localhost', 'root', '', 'forum');
 				$id=$_GET['id'];
 				$user = $_SESSION['id'];
